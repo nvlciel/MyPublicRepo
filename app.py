@@ -4,7 +4,7 @@ from openai import OpenAI
 import os
 
 # Get your OpenAI API key from environment variables
-
+api_key = os.getenv("OPENAI_API_KEY")  # Used in production - Uncomment this line when you deploy
 
 # Cell 2: Title & Description
 st.title('🤖 AI Data Interview Assistant')
