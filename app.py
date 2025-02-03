@@ -1,6 +1,7 @@
 # Cell 1: Setup
 import streamlit as st
-from openai import OpenAI
+#from openai import OpenAI
+import openai
 import os
 
 # Get your OpenAI API key from environment variables
@@ -27,20 +28,29 @@ def analyze_text(text):
       st.error("OpenAI API key is not set. Please set it in your environment variables.")
       return
 
-  client = OpenAI(api_key=api_key)
+  #client = OpenAI(api_key=api_key)
   model = "gpt-3.5-turbo"  # Using the GPT-3.5 model
-
+  
+  openai.api_key = api_key
+  
+  
   # Instructions for the AI (adjust if needed)
   messages = [
       {"role": "system", "content": "You are an assistant who answers interview and technical questions for a data science related jobs."},
       {"role": "user", "content": f"Answer the following job interview question:\n{text}"}
   ]
-
-  response = client.chat.completions.create(
+  
+  response = openai.ChatCompletion.create(
       model=model,
       messages=messages,
       temperature=0  # Lower temperature for less random responses
   )
+  
+  #response = client.chat.completions.create(
+      #model=model,
+      #messages=messages,
+      #temperature=0  # Lower temperature for less random responses
+  #)
   return response.choices[0].message.content
 
 # Cell 4: Streamlit UI
