@@ -1,7 +1,6 @@
 # Cell 1: Setup
 import streamlit as st
-#from openai import OpenAI
-import openai
+from openai import OpenAI
 import os
 
 # Get your OpenAI API key from environment variables
@@ -28,7 +27,7 @@ def analyze_text(text):
       st.error("OpenAI API key is not set. Please set it in your environment variables.")
       return
 
-  client = openai(api_key=api_key)
+  client = OpenAI(api_key=api_key)
   model = "gpt-3.5-turbo"  # Using the GPT-3.5 model
 
   # Instructions for the AI (adjust if needed)
