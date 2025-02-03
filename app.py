@@ -28,7 +28,7 @@ def analyze_text(text):
       st.error("OpenAI API key is not set. Please set it in your environment variables.")
       return
 
-  client = OpenAI(api_key=api_key)
+  client = openai(api_key=api_key)
   model = "gpt-3.5-turbo"  # Using the GPT-3.5 model
 
   # Instructions for the AI (adjust if needed)
