@@ -1,6 +1,7 @@
 # Cell 1: Setup
 import streamlit as st
-from openai import OpenAI
+#from openai import OpenAI
+import openai
 import os
 
 # Get your OpenAI API key from environment variables
